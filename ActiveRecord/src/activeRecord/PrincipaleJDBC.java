@@ -16,11 +16,11 @@ public class PrincipaleJDBC {
 
         // variables de connection
         String userName = "root";
-        String password = "root";
-        String serverName = "127.0.0.1";
+        String password = "";
+        String serverName = "localhost";
         //String portNumber = "3306";
-        String portNumber = "8889"; // Port par défaut sur MAMP
-        String tableName = "personne";
+        String portNumber = ""; // Port par défaut sur MAMP
+        String tableName = "testpersonne";
 
         // il faut une base nommee testPersonne !
         String dbName = "testpersonne";
