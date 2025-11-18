@@ -15,28 +15,15 @@ public class PrincipaleJDBC {
     public static void main(String[] args) {
 
         // variables de connection
-        String userName = "root";
-        String password = "";
-        String serverName = "localhost";
-        //String portNumber = "3306";
-        String portNumber = ""; // Port par défaut sur MAMP
-        String tableName = "personne";
 
-        // il faut une base nommee testPersonne !
-        String dbName = "testpersonne";
 
         try {
             // chargement du driver jdbc
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // creation de la connection
-            Properties connectionProps = new Properties();
-            connectionProps.put("user", userName);
-            connectionProps.put("password", password);
-            String urlDB = "jdbc:mysql://" + serverName + ":";
-            urlDB += portNumber + "/" + dbName;
-            System.out.println(urlDB);
-            Connection connect = DriverManager.getConnection(urlDB, connectionProps);
+
+            Connection connect = DBConnection.getInstance().getConnection();
             //Connection connect = DriverManager.getConnection("jdbc:mysql://db4free.net/testpersonne","scruzlara", "root2014");
             // creation de la table Personne
             String createString = "CREATE TABLE Personne ( "
