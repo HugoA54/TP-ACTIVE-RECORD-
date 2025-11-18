@@ -20,7 +20,7 @@ public class PrincipaleJDBC {
         String serverName = "localhost";
         //String portNumber = "3306";
         String portNumber = ""; // Port par défaut sur MAMP
-        String tableName = "testpersonne";
+        String tableName = "personne";
 
         // il faut une base nommee testPersonne !
         String dbName = "testpersonne";
