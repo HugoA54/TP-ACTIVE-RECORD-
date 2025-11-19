@@ -21,13 +21,11 @@ public class PrincipaleJDBC {
             // chargement du driver jdbc
             Class.forName("com.mysql.cj.jdbc.Driver");
 
+            // creation de la connection
 
             Connection connect = DBConnection.getInstance().getConnection();
 
-
-            for (Personne personne : Personne.findAll()) {
-                System.out.println(personne.getNom() + " " + personne.getPrenom());
-            }
+            
 
 
             Personne personne = Personne.findById(1);
@@ -116,7 +114,6 @@ public class PrincipaleJDBC {
 //            String drop = "DROP TABLE Personne";
 //            stmt = connect.createStatement();
 //            stmt.executeUpdate(drop);
-
 
         } catch (ClassNotFoundException e) {
             System.out.println("*** ERREUR lors du chargement du driver ***");
