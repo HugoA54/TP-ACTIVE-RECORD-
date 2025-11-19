@@ -39,6 +39,29 @@ public class Personne {
     }
 
 
+    public static Personne findById(int id){
+        try {
+            System.out.println("***** Affichage par ID ******" + id);
+            String SQLPrep = "SELECT * FROM Personne WHERE id=?;";
+            PreparedStatement prep1 = DBConnection.getInstance().getConnection().prepareStatement(SQLPrep);
+            prep1.setInt(1, id);
+            prep1.execute();
+            ResultSet rs = prep1.getResultSet();
+            if (rs.next()) {
+                String nom = rs.getString("nom");
+                String prenom = rs.getString("prenom");
+                 id = rs.getInt("id");
+                 return new Personne(nom, prenom);
+            }
+
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+                return null;
+    }
+
+
     public String getPrenom() {
         return prenom;
     }

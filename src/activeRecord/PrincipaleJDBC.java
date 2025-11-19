@@ -28,6 +28,10 @@ public class PrincipaleJDBC {
             for (Personne personne : Personne.findAll()) {
                 System.out.println(personne.getNom() + " " + personne.getPrenom());
             }
+
+
+            Personne personne = Personne.findById(1);
+            System.out.println(personne.getNom() + " " + personne.getPrenom());
 //            String createString = "CREATE TABLE Personne ( "
 //                    + "ID INTEGER  AUTO_INCREMENT, " + "NOM varchar(40) NOT NULL, "
 //                    + "PRENOM varchar(40) NOT NULL, " + "PRIMARY KEY (ID))";
@@ -63,19 +67,7 @@ public class PrincipaleJDBC {
 //            System.out.println(autoInc);
 //
 //
-//            // récupération de toutes les personnes + affichage
-//            System.out.println("***** AFFICHE TOUTES PERSONNES ***** ");
-//            SQLPrep = "SELECT * FROM Personne;";
-//            PreparedStatement prep1 = connect.prepareStatement(SQLPrep);
-//            prep1.execute();
-//            rs = prep1.getResultSet();
-//            // s'il y a un resultat
-//            while (rs.next()) {
-//                String nom = rs.getString("nom");
-//                String prenom = rs.getString("prenom");
-//                int id = rs.getInt("id");
-//                System.out.println("-> (" + id + ") " + nom + ", " + prenom);
-//            }
+
 //
 //            // suppression de la personne 1
 //            prep = connect.prepareStatement("DELETE FROM Personne WHERE id=?");
