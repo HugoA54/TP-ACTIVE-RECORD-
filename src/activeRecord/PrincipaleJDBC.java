@@ -106,9 +106,7 @@ public class PrincipaleJDBC {
 //            }
 //
 //            // suppression de la table personne
-//            String drop = "DROP TABLE Personne";
-//            stmt = connect.createStatement();
-//            stmt.executeUpdate(drop);
+//
 
         } catch (ClassNotFoundException e) {
             System.out.println("*** ERREUR lors du chargement du driver ***");

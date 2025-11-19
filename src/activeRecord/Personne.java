@@ -100,7 +100,14 @@ public class Personne {
     }
 
     public static void deleteTable(){
-
+    try {
+        String drop = "DROP TABLE Personne";
+        Statement stmt = DBConnection.getInstance().getConnection().createStatement();
+        stmt.executeUpdate(drop);
+    }
+    catch (SQLException e){
+        e.printStackTrace();
+    }
     }
 
 
