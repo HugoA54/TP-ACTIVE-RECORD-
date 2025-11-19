@@ -25,7 +25,7 @@ public class PrincipaleJDBC {
 
             Connection connect = DBConnection.getInstance().getConnection();
 
-            
+
 
 
             Personne personne = Personne.findById(1);
