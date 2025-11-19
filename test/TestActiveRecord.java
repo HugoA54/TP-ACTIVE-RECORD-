@@ -13,7 +13,7 @@ public class TestActiveRecord {
     @Test
     public void test_setNomDB_OK(){
         DBConnection db = DBConnection.getInstance();
-        String nom = db.getDBName();
+        String nom = db.getNomDB();
         String nouvNom = "test";
 
         db.setNomDB(nouvNom);
