@@ -90,6 +90,18 @@ public class Film {
     }
 
 
+    public void save() throws RealisateurAbsentException {
+        if (this.id_real == -1)
+            throw new RealisateurAbsentException("Le réalisateur n'existe pas dans la base.");
+        if (this.id == -1) {
+            saveNew();
+        } else {
+            update();
+        }
+    }
+
+
+
 
 
 
