@@ -62,7 +62,35 @@ public class Film {
         return Personne.findById(this.id_real);
     }
 
-    
+    public static void createTable() {
+        try {
+            String sql = "CREATE TABLE Film (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "titre VARCHAR(40) NOT NULL, " +
+                    "id_real INT NOT NULL, " +
+                    "FOREIGN KEY (id_real) REFERENCES Personne(id)" +
+                    ")";
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteTable() {
+        try {
+            String sql = "DROP TABLE Film";
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 
 
 }
