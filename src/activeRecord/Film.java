@@ -101,7 +101,7 @@ public class Film {
     }
 
 
-    private void saveNew() throws RealisateurAbsentException {
+    private void saveNew()  {
 
         try {
             String sql = "INSERT INTO Film (titre, id_real) VALUES (?, ?)";
