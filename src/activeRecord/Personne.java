@@ -134,8 +134,8 @@ public class Personne {
             String SQLPrep = "INSERT INTO Personne (nom, prenom) VALUES (?,?);";
             PreparedStatement prep;
             prep = connect.prepareStatement(SQLPrep, Statement.RETURN_GENERATED_KEYS);
-            prep.setString(1, this.getPrenom());
-            prep.setString(2, this.getNom());
+            prep.setString(1, this.getNom());
+            prep.setString(2, this.getPrenom());
             prep.executeUpdate();
             
             int autoInc = -1;

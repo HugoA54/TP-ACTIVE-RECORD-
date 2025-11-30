@@ -1,0 +1,68 @@
+package activeRecord;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Film {
+    private String titre;
+    private int id;
+    private int id_real;
+
+
+    /**
+     *
+     * @param titre
+     * @param personne
+     */
+    public Film(String titre, Personne personne ) {
+        this.titre = titre;
+        this.id = -1;
+        this.id_real = personne.getId();
+    }
+
+    /**
+     *
+     * @param titre
+     * @param id
+     * @param id_real
+     */
+    private Film(String titre, int id, int id_real) {
+        this.titre = titre;
+        this.id = id;
+        this.id_real = id_real;
+    }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public static Film findById(int id) {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM film WHERE id = ?");
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                String titre = rs.getString("titre");
+                int id_real = rs.getInt("id_real");
+                return new Film(titre, id, id_real);
+            }
+        }
+        catch(SQLException e){
+                e.printStackTrace();
+            }
+        return null;
+    }
+
+
+    public Personne getRealisateur() {
+        return Personne.findById(this.id_real);
+    }
+
+    
+
+
+}

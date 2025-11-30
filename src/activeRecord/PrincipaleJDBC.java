@@ -29,75 +29,8 @@ public class PrincipaleJDBC {
 
             Personne personne = Personne.findById(1);
             System.out.println(personne.getNom() + " " + personne.getPrenom());
-//
-//
-//            // ajout de personne avec requete preparee
-//            String SQLPrep = "INSERT INTO Personne (nom, prenom) VALUES (?,?);";
-//            PreparedStatement prep;
-//            //l'option RETURN_GENERATED_KEYS permet de recuperer l'id
-//            prep = connect.prepareStatement(SQLPrep,
-//                    Statement.RETURN_GENERATED_KEYS);
-//            prep.setString(1, "Steven");
-//            prep.setString(2, "Spielberg");
-//            prep.executeUpdate();
-//
-//            SQLPrep = "INSERT INTO Personne (nom, prenom) VALUES (?,?);";
-//            //l'option RETURN_GENERATED_KEYS permet de récupérer l'id auto increment
-//            prep = connect.prepareStatement(SQLPrep,
-//                    Statement.RETURN_GENERATED_KEYS);
-//            prep.setString(1, "Ridley");
-//            prep.setString(2, "Scott");
-//            prep.executeUpdate();
-//
-//            // recuperation de la derniere ligne ajoutée (auto increment)
-//            // recupere le nouvel id
-//            int autoInc = -1;
-//            ResultSet rs = prep.getGeneratedKeys();
-//            if (rs.next()) {
-//                autoInc = rs.getInt(1);
-//            }
-//            System.out.println("**** id utilise lors de l'ajout ****");
-//            System.out.println(autoInc);
-//
-//
 
-//
-//            // suppression de la personne 1
 
-//
-//            // recuperation de la seconde personne + affichage
-//            System.out.println("***** AFFICHE PERSONNE 2***** ");
-//            SQLPrep = "SELECT * FROM Personne WHERE id=?;";
-//            prep1 = connect.prepareStatement(SQLPrep);
-//            prep1.setInt(1, 2);
-//            prep1.execute();
-//            rs = prep1.getResultSet();
-//            // s'il y a un resultat
-//            if (rs.next()) {
-//                String nom = rs.getString("nom");
-//                String prenom = rs.getString("prenom");
-//                int id = rs.getInt("id");
-//                System.out.println("-> (" + id + ") " + nom + ", " + prenom);
-//            }
-//
-//            // met � jour personne 2
-//
-//
-//            // recuperation de la seconde personne + affichage
-//            System.out.println("***** AFFICHE PERSONNE 2 après modif***** ");
-//            SQLPrep = "SELECT * FROM Personne WHERE id=?;";
-//            prep1 = connect.prepareStatement(SQLPrep);
-//            prep1.setInt(1, 2);
-//            prep1.execute();
-//            rs = prep1.getResultSet();
-//            // s'il y a un resultat
-//            if (rs.next()) {
-//                String nom = rs.getString("nom");
-//                String prenom = rs.getString("prenom");
-//                int id = rs.getInt("id");
-//                System.out.println("-> (" + id + ") " + nom + ", " + prenom);
-//            }
-//
 
 
         } catch (ClassNotFoundException e) {
