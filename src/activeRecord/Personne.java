@@ -118,23 +118,24 @@ public class Personne {
         this.id = -1;
     }
 
-    public void save(Personne personne){
-        if(personne.getId() == -1){
-            saveNew(personne);
+    public void save(){
+        if(this.getId() == -1){
+            saveNew();
         }
         else{
-            update(personne);
+            update();
         }
     }
 
-    private void saveNew(Personne personne){
+
+    private void saveNew(){
         try {
             Connection connect = DBConnection.getInstance().getConnection();
             String SQLPrep = "INSERT INTO Personne (nom, prenom) VALUES (?,?);";
             PreparedStatement prep;
             prep = connect.prepareStatement(SQLPrep, Statement.RETURN_GENERATED_KEYS);
-            prep.setString(1, personne.getPrenom());
-            prep.setString(2, personne.getNom());
+            prep.setString(1, this.getPrenom());
+            prep.setString(2, this.getNom());
             prep.executeUpdate();
             
             int autoInc = -1;
@@ -142,16 +143,32 @@ public class Personne {
             if (rs.next()) {
                 autoInc = rs.getInt(1);
             }
-            personne.setId(autoInc);
+            this.setId(autoInc);
         }
         catch (SQLException e){
             e.printStackTrace();
         }
     }
 
-    private void update(Personne personne){
+    private void update() {
+        String sql = "UPDATE Personne SET nom = ?, prenom = ? WHERE id = ?";
 
+        try {
+            Connection conn = DBConnection.getInstance().getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, this.nom);
+            stmt.setString(2, this.prenom);
+            stmt.setInt(3, this.id);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
+
 
     public void setId(int id){
         this.id = id;

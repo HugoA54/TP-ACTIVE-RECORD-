@@ -81,12 +81,7 @@ public class PrincipaleJDBC {
 //            }
 //
 //            // met � jour personne 2
-//            String SQLprep = "update Personne set nom=?, prenom=? where id=?;";
-//            prep1 = connect.prepareStatement(SQLprep);
-//            prep1.setString(1, "R_i_d_l_e_y");
-//            prep1.setString(2, "S_c_o_t_t");
-//            prep1.setInt(3, 2);
-//            prep1.execute();
+//
 //
 //            // recuperation de la seconde personne + affichage
 //            System.out.println("***** AFFICHE PERSONNE 2 après modif***** ");
