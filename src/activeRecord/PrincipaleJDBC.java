@@ -30,6 +30,12 @@ public class PrincipaleJDBC {
             Personne personne = Personne.findById(1);
             System.out.println(personne.getNom() + " " + personne.getPrenom());
 
+            Personne p = new Personne("Cameron", "James"); // id = -1
+            p.save();
+            Film f = new Film("Avatar", p);
+            f.save();
+
+            System.out.println(Film.findByRealisateur(p).toString());
 
 
 
